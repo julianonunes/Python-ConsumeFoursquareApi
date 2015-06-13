@@ -33,12 +33,12 @@
                 <ul>
                     <li ng-repeat="venue in establishments">
                         <span ng-bind="venue.name"></span>
-                        <p>{{ venue.address }}</p>
-                        <p>Preço: {{ venue.price }} - Avaliação: {{ venue.rating }}</p>
+                        <p><span ng-bind="venue.address"></span></p>
+                        <p>Preço: <span ng-bind="venue.price"></span> - Avaliação: <span ng-bind="venue.rating"></span></p>
                     </li>
                 </ul>
             </div>
-            <div class="row">
+            <div class="row">{{ keyring. }}
                 <textarea id="json" ng-model="establishments"></textarea>
 
             </div>

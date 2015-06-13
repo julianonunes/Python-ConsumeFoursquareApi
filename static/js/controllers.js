@@ -66,6 +66,7 @@ mapApp.controller('MapController', ['$scope', '$http', function ($scope, $http) 
              }
              });*/
 
+
             $http.get('/api/@' + lat + ',' + lng + '/.json').success(function (data) {
                 if (data) {
                     removeMarkers();

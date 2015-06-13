@@ -33,6 +33,7 @@ class VenueList(generics.ListCreateAPIView):
             for item in r.json()['response']['groups'][0]['items']:
                 json_venue = item['venue']
                 if 'location' in json_venue and 'address' in json_venue['location']:
+
                     venue = Venue(
                         id=json_venue['id'],
                         name=json_venue['name'],
@@ -44,11 +45,13 @@ class VenueList(generics.ListCreateAPIView):
 
                     result.append(venue)
 
-                    venue.save()
+                    if Venue.objects.filter(id = json_venue['id']).count() == 0:
+                        venue.save()
 
-        queryset = result
+        return result
 
 
 class VenueDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Venue.objects.all
     serializer_class = VenueSerializer
+

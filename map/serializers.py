@@ -5,4 +5,4 @@ from map.models import Venue
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
-        fields = ('id', 'name', 'address', 'rating', 'price', 'distance', 'lat', 'lng')
+        fields = ('id', 'name', 'address', 'rating', 'price', 'lat', 'lng')
